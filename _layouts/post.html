@@ -1,0 +1,16 @@
+---
+layout: blog
+---
+
+<article>
+  <hgroup>
+    <h1><a href="/{{ page.url }}">{{ page.title }}</a></a></h1>
+    {% if page.subtitle %}
+    <h2>{{ page.subtitle }}</h2>
+    {% endif %}
+    <p class="date">{{ page.date | date_to_ordinal_string }}</p>
+  </hgroup>
+  <div class="content">
+    {{ page.content }}
+  </div>
+</article>

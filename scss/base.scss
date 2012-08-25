@@ -1,0 +1,541 @@
+/* Table of Content
+==================================================
+	#Reset & Basics
+	#Fonts
+	#Colors
+	#Basic Styles
+	#Site Styles
+	#Typography
+	#Links
+	#Lists
+	#Images
+	#Buttons
+	#Tabs
+	#Forms
+	#Misc
+	#Symbolset
+	*/
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1; }
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+
+
+/* Fonts
+================================================== */
+@font-face {
+    font-family: 'Pigeon';
+    src: url('/fonts/pigeon.otf');
+  	src: url('/fonts/pigeon.woff') format('woff'),
+		 url('/fonts/pigeon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+	}
+
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+
+/* Colors
+================================================== */
+
+    $red: #e92e2e;
+    $lightest-red: lighten($red, 15%);
+    $light-red: lighten($red, 10%);
+    $dark-red: desaturate(darken($red, 10%), 10%);
+
+    $green: #4eb1a3;
+    $lightest-green: lighten($green, 30%);
+    $light-green: lighten($green, 15%);
+    $dark-green: darken($green, 10%);
+    $darkest-green: darken($green, 20%);
+
+    $orange: #f29b32;
+    $lightest-orange: lighten($orange, 30%);
+    $light-orange: lighten($orange, 15%);
+    $dark-orange: darken($orange, 10%);
+
+    $tan: #d4d3c2;
+    $light-tan: lighten($tan, 15%);
+    $lightest-tan: lighten($tan, 18%);
+    $dark-tan: darken($tan, 15%);
+
+    $blue: #1d262a;
+    $lightest-blue: lighten($blue, 30%);
+    $light-blue: lighten($blue, 15%);
+
+    $white: #fff;
+    $black: #242424;
+
+
+/* Mixins
+================================================== */
+	@mixin translate ($x,$y) {
+		transform: translate($x,$y);
+		-ms-transform: translate($x,$y); /* IE 9 */
+		-moz-transform: translate($x,$y); /* Firefox */
+		-webkit-transform: translate($x,$y);/* Safari and Chrome */
+	}
+
+	@mixin transition ($seconds, $property: all) {
+    	-webkit-transition: $property $seconds ease-out;
+    	-moz-transition: $property $seconds ease-out;
+    	-o-transition: $property $seconds ease-out;
+    	-ms-transition: $property $seconds ease-out;
+    	-webkit-transform: translateZ(0); /* iOS Glitch Fix */
+	}
+
+	@mixin transitionBGcolor ($color, $time: 1000ms, $ease: linear) {
+     	background-color: $color;
+     	-webkit-transition: background-color $time $ease;
+     	-moz-transition: background-color $time $ease;
+     	-o-transition: background-color $time $ease;
+     	-ms-transition: background-color $time $ease;
+     	transition: background-color $time $ease;
+	}
+
+	@mixin border-radius ($radius) {
+		-moz-border-radius: $radius;
+		-webkit-border-radius: $radius;
+		border-radius: $radius;
+	}
+
+	@mixin border-radius-top ($radius) {
+		-moz-border-top-right-radius: $radius;
+		-webkit-border-top-right-radius: $radius;
+		border-top-right-radius: $radius;
+		-moz-border-top-left-radius: $radius;
+		-webkit-border-top-left-radius: $radius;
+		border-top-left-radius: $radius;
+	}
+
+	@mixin border-radius-left ($radius) {
+		-moz-border-top-left-radius: $radius;
+		-webkit-border-top-left-radius: $radius;
+		border-top-left-radius: $radius;
+		-moz-border-bottom-left-radius: $radius;
+		-webkit-border-bottom-left-radius: $radius;
+		border-bottom-left-radius: $radius;
+	}
+
+	@mixin arrow-down ($size: 8px, $color: #000) {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+	}
+
+
+	@mixin mobile-only {
+	    visibility: hidden;
+	}
+
+	@mixin not-mobile {
+	    visibility: visible;
+	}
+
+
+/* #Basic Styles
+================================================== */
+	body {
+		background: $blue url(/images/bg-dark-blue.jpg) top center;
+		font: 19px/27px "Pigeon", "Georgia", Georgia, Times, serif;
+		color: $black;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+		font-smoothing: antialiased;
+		min-width: 980px;
+
+/* 		-webkit-transform: translate3d(0, 0, 0); */
+		// position: relative;
+	}
+
+	body.blog {
+		background: $green url(/images/bg-grid-green.png) top center;
+	}
+
+// #Sticky Footer
+	// * {
+	// 	margin: 0;
+	// }
+	// html, body {
+	// 	height: 100%;
+	// }
+	// .stickyWrapper {
+	// 	min-height: 100%;
+	// 	height: auto !important;
+	// 	height: 100%;
+	// 	margin: 0 auto -374px; /* the bottom margin is the negative value of the footer's height */
+	// }
+	// .push {
+	// 	height: 374px; /* .push must be the same height as .footer */
+	// }
+
+
+// #Typography
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Droid Sans', Helvetica, sans-serif;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+	h1 { font-size: 36px; line-height: 32px; margin-bottom: 0;}
+	h2 { font-size: 28px; line-height: 32px; margin-bottom: 10px; }
+	h3 { font-size: 24px; line-height: 27px; margin-bottom: 8px; }
+	h4 { font-size: 21px; line-height: 24px; margin-bottom: 4px; }
+	h5 { font-size: 17px; line-height: 21px; }
+	h6 { font-size: 14px; line-height: 21px; }
+	.subheader { color: $black; }
+
+	p { margin: 0 0 20px 0; }
+	p img { margin: 0; }
+	p.lead { font-size: 21px; line-height: 27px; color: $black;  }
+
+	sup { vertical-align: top; font-size: .6em;}
+
+
+	em { font-style: italic; }
+	b { font-weight: bold; }
+	strong { font-weight: bold;}
+	small { font-size: 80%; }
+	.large {
+		font-size: 2em;
+	}
+
+/*	Blockquotes  */
+/*
+	blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
+	blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+	blockquote cite { display: block; font-size: 12px; color: #555; }
+	blockquote cite:before { content: "\2014 \0020"; }
+	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }
+*/
+
+	hr { border: solid $green; border-width: 3px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
+
+
+/* #Links
+================================================== */
+	a, a:visited {  text-decoration: underline; outline: 0; color: $black; }
+	a:hover, a:focus { color: $black; }
+	p a, p a:visited { line-height: inherit; }
+
+
+/* #Lists
+================================================== */
+	ul, ol { margin-bottom: 20px; }
+	ul { list-style: none outside; margin-left: 20px; }
+	ol { list-style: decimal; }
+	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+	ul.square { list-style: square outside; }
+	ul.circle { list-style: circle outside; }
+	ul.disc { list-style: disc outside; }
+	ul ul, ul ol,
+	ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
+	ul ul li, ul ol li,
+	ol ol li, ol ul li { margin-bottom: 6px; }
+	li { line-height: 24px; margin-bottom: 12px; }
+	ul.large li { line-height: 21px; }
+	li p { line-height: 21px; }
+
+/* #Images
+================================================== */
+
+	img.scale-with-grid {
+		max-width: 100%;
+		height: auto; }
+
+
+/* #Buttons
+================================================== */
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		font-family: "Pigeon", "Georgia", Georgia, Times, serif;
+		background: $orange;
+	  	border: 3px solid $orange;
+	  	-moz-border-radius: 3px;
+	  	-webkit-border-radius: 3px;
+	  	border-radius: 3px;
+	  	color: $white;
+	  	display: inline-block;
+	  	font-weight: bold;
+	  	text-decoration: none;
+	  	cursor: pointer;
+	  	margin-bottom: 20px;
+	  	line-height: normal;
+	  	padding: 8px 10px;
+	  	float: right;
+	  	font-size: 1em;
+	  	letter-spacing: 1px;
+	}
+
+
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		background: $light-orange;
+	  	border: 3px solid $light-orange;
+	  	text-align: right
+	}
+
+	.button:active,
+	button:active,
+	input[type="submit"]:active,
+	input[type="reset"]:active,
+	input[type="button"]:active {
+	  	border: 3px solid $dark-orange;
+		background: $dark-orange;
+	}
+
+	.button.full-width,
+	button.full-width,
+	input[type="submit"].full-width,
+	input[type="reset"].full-width,
+	input[type="button"].full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; }
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+
+/* #Tabs (activate in tabs.js)
+================================================== */
+	ul.tabs {
+		display: block;
+		margin: 0 0 20px 0;
+		padding: 0;
+		border-bottom: solid 1px #ddd; }
+	ul.tabs li {
+		display: block;
+		width: auto;
+		height: 30px;
+		padding: 0;
+		float: left;
+		margin-bottom: 0; }
+	ul.tabs li a {
+		display: block;
+		text-decoration: none;
+		width: auto;
+		height: 29px;
+		padding: 0px 20px;
+		line-height: 30px;
+		border: solid 1px #ddd;
+		border-width: 1px 1px 0 0;
+		margin: 0;
+		background: #f5f5f5;
+		font-size: 13px; }
+	ul.tabs li a.active {
+		background: #fff;
+		height: 30px;
+		position: relative;
+		top: -4px;
+		padding-top: 4px;
+		border-left-width: 1px;
+		margin: 0 0 0 -1px;
+		color: #111;
+		-moz-border-radius-topleft: 2px;
+		-webkit-border-top-left-radius: 2px;
+		border-top-left-radius: 2px;
+		-moz-border-radius-topright: 2px;
+		-webkit-border-top-right-radius: 2px;
+		border-top-right-radius: 2px; }
+	ul.tabs li:first-child a.active {
+		margin-left: 0; }
+	ul.tabs li:first-child a {
+		border-width: 1px 1px 0 1px;
+		-moz-border-radius-topleft: 2px;
+		-webkit-border-top-left-radius: 2px;
+		border-top-left-radius: 2px; }
+	ul.tabs li:last-child a {
+		-moz-border-radius-topright: 2px;
+		-webkit-border-top-right-radius: 2px;
+		border-top-right-radius: 2px; }
+
+	ul.tabs-content { margin: 0; display: block; }
+	ul.tabs-content > li { display:none; }
+	ul.tabs-content > li.active { display: block; }
+
+	/* Clearfixing tabs for beautiful stacking */
+	ul.tabs:before,
+	ul.tabs:after {
+	  content: '\0020';
+	  display: block;
+	  overflow: hidden;
+	  visibility: hidden;
+	  width: 0;
+	  height: 0; }
+	ul.tabs:after {
+	  clear: both; }
+	ul.tabs {
+	  zoom: 1; }
+
+
+/* #Forms
+================================================== */
+
+	form {
+		margin-bottom: 20px; }
+	fieldset {
+		margin-bottom: 20px; }
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea,
+	 {
+		font-family: "Pigeon", "Georgia", Georgia, Times, serif;
+	  	border: 3px solid $orange;
+		padding: 10px 12px;
+		outline: none;
+		@include border-radius(6px);
+		color: $blue;
+		margin: 0;
+		width: 66%;
+		max-width: 100%;
+		display: block;
+		font-size: 1em;
+		background: none; }
+	select {
+		padding: 0; }
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus,
+	textarea:focus {
+	  	border: 3px solid $dark-orange;
+ 		color: #444;
+ 		-moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
+		-webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
+		box-shadow:  0 0 3px rgba(0,0,0,.2); }
+	textarea {
+		min-height: 60px;
+		width: 95%;
+	}
+	label,
+	legend {
+		display: block;
+		font-weight: bold;
+		font-size: 13px;  }
+	select {
+		width: 220px; }
+	input[type="checkbox"] {
+		display: inline; }
+	label span,
+	legend span {
+		font-weight: normal;
+		font-size: 13px;
+		color: #444; }
+
+/* #Misc
+================================================== */
+	.remove-bottom { margin-bottom: 0 !important; }
+	.half-bottom { margin-bottom: 10px !important; }
+	.add-bottom { margin-bottom: 20px !important; }
+
+/* #Symbolset
+================================================== */
+
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2012 Oak Studios LLC
+*
+* Upload this file to your web server
+* and place this within your <head> tags.
+* <link href="webfonts/ss-social.css" rel="stylesheet" />
+*/
+
+@font-face {
+  font-family: "SSSocial";
+  src: url('/fonts/ss-social-regular.eot');
+  src: url('/fonts/ss-social-regular.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/ss-social-regular.woff') format('woff'),
+       url('/fonts/ss-social-regular.ttf') format('truetype'),
+       url('/fonts/ss-social-regular.svg#SSSocialRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: "SSStandard";
+	src: url('/fonts/ss-standard.eot');
+	src: url('/fonts/ss-standard.eot?#iefix') format('embedded-opentype'),
+	     url('/fonts/ss-standard.woff') format('woff'),
+	     url('/fonts/ss-standard.ttf')  format('truetype'),
+	     url('/fonts/ss-standard.svg#SSStandard') format('svg');
+	font-weight: normal;
+  font-style: normal;
+}
+
+
+.ss-icon.ss-social-circle, [class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before,
+.ss-icon.ss-social, [class^="ss-"].ss-social:before, [class*=" ss-"].ss-social:before {
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -moz-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+.ss-icon.ss-social-circle, [class^="ss-"].ss-social-circle:before, [class*=" ss-"].ss-social-circle:before {
+  font-weight: bold;
+}
+
+.ss-facebook:before{content:''}.ss-twitter:before{content:''}.ss-linkedin:before{content:''}.ss-googleplus:before{content:''}.ss-tumblr:before{content:''}.ss-wordpress:before{content:''}.ss-blogger:before{content:''}.ss-posterous:before{content:''}.ss-youtube:before{content:''}.ss-vimeo:before{content:''}.ss-flickr:before{content:''}.ss-instagram:before{content:''}.ss-pinterest:before{content:''}.ss-dribbble:before{content:''}.ss-behance:before{content:''}.ss-github:before{content:''}.ss-paypal:before{content:''}.ss-foursquare:before{content:''}.ss-skype:before{content:''}.ss-mail:before{content:'✉'}
+
+
+.ss-icon, [class^="ss-"]:before, [class*=" ss-"]:before,
+.ss-icon.ss-standard, [class^="ss-"].ss-standard:before, [class*=" ss-"].ss-standard:before {
+  font-family: "SSStandard";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -moz-font-feature-settings: "liga", "dlig";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+.ss-cursor:before{content:''}.ss-crosshair:before{content:'⌖'}.ss-search:before{content:'🔎'}.ss-view:before{content:'👀'}.ss-attach:before{content:'📎'}.ss-link:before{content:'🔗'}.ss-move:before{content:''}.ss-write:before{content:'✎'}.ss-writingdisabled:before{content:''}.ss-erase:before{content:'✐'}.ss-compose:before{content:'📝'}.ss-lock:before{content:'🔒'}.ss-unlock:before{content:'🔓'}.ss-key:before{content:'🔑'}.ss-backspace:before{content:'⌫'}.ss-ban:before{content:'🚫'}.ss-trash:before{content:''}.ss-target:before{content:'◎'}.ss-tag:before{content:''}.ss-bookmark:before{content:'🔖'}.ss-flag:before{content:'⚑'}.ss-like:before{content:'👍'}.ss-dislike:before{content:'👎'}.ss-heart:before{content:'♥'}.ss-halfheart:before{content:''}.ss-star:before{content:'⋆'}.ss-halfstar:before{content:''}.ss-sample:before{content:''}.ss-crop:before{content:''}.ss-layers:before{content:''}.ss-phone:before{content:'📞'}.ss-phonedisabled:before{content:''}.ss-rss:before{content:''}.ss-facetime:before{content:''}.ss-reply:before{content:'↩'}.ss-mail:before{content:'✉'}.ss-inbox:before{content:'📥'}.ss-chat:before{content:'💬'}.ss-user:before{content:'👤'}.ss-femaleuser:before{content:'👧'}.ss-users:before{content:'👥'}.ss-cart:before{content:''}.ss-creditcard:before{content:'💳'}.ss-barchart:before{content:'📊'}.ss-piechart:before{content:''}.ss-box:before{content:'📦'}.ss-home:before{content:'⌂'}.ss-globe:before{content:'🌎'}.ss-navigate:before{content:''}.ss-compass:before{content:''}.ss-signpost:before{content:''}.ss-location:before{content:''}.ss-map:before{content:''}.ss-pin:before{content:'📍'}.ss-database:before{content:''}.ss-music:before{content:'♫'}.ss-mic:before{content:'🎤'}.ss-volume:before{content:'🔈'}.ss-volumelow:before{content:'🔉'}.ss-volumehigh:before{content:'🔊'}.ss-airplay:before{content:''}.ss-camera:before{content:'📷'}.ss-picture:before{content:'🌄'}.ss-video:before{content:'📹'}.ss-play:before{content:'▶'}.ss-pause:before{content:''}.ss-stop:before{content:'■'}.ss-record:before{content:'●'}.ss-rewind:before{content:'⏪'}.ss-fastforward:before{content:'⏩'}.ss-skipback:before{content:'⏮'}.ss-skipforward:before{content:'⏭'}.ss-eject:before{content:'⏏'}.ss-repeat:before{content:'🔁'}.ss-replay:before{content:'↺'}.ss-shuffle:before{content:'🔀'}.ss-notebook:before{content:'📓'}.ss-grid:before{content:''}.ss-rows:before{content:''}.ss-columns:before{content:''}.ss-desktop:before{content:'💻'}.ss-laptop:before{content:''}.ss-tablet:before{content:''}.ss-cell:before{content:'📱'}.ss-battery:before{content:'🔋'}.ss-batteryhigh:before{content:''}.ss-batterymedium:before{content:''}.ss-batterylow:before{content:''}.ss-batteryempty:before{content:''}.ss-clouddownload:before{content:''}.ss-download:before{content:''}.ss-cloudupload:before{content:''}.ss-upload:before{content:''}.ss-fork:before{content:''}.ss-merge:before{content:''}.ss-refresh:before{content:'↻'}.ss-sync:before{content:''}.ss-loading:before{content:''}.ss-wifi:before{content:''}.ss-connection:before{content:''}.ss-file:before{content:'📄'}.ss-folder:before{content:'📁'}.ss-quote:before{content:'“'}.ss-text:before{content:''}.ss-font:before{content:''}.ss-print:before{content:'⎙'}.ss-fax:before{content:'📠'}.ss-list:before{content:''}.ss-layout:before{content:''}.ss-action:before{content:''}.ss-expand:before{content:'⤢'}.ss-contract:before{content:''}.ss-help:before{content:'❓'}.ss-info:before{content:'ℹ'}.ss-alert:before{content:'⚠'}.ss-caution:before{content:'⛔'}.ss-plus:before{content:'+'}.ss-hyphen:before{content:'-'}.ss-dropdown:before{content:'▾'}.ss-check:before{content:'✓'}.ss-delete:before{content:'␡'}.ss-settings:before{content:'⚙'}.ss-dashboard:before{content:''}.ss-notifications:before{content:'🔔'}.ss-notificationsdisabled:before{content:'🔕'}.ss-clock:before{content:'⏲'}.ss-stopwatch:before{content:'⏱'}.ss-calendar:before{content:'📆'}.ss-calendaradd:before{content:''}.ss-calendarremove:before{content:''}.ss-calendarcheck:before{content:''}.ss-briefcase:before{content:'💼'}.ss-cloud:before{content:'☁'}.ss-navigateup:before{content:''}.ss-navigateright:before{content:'▻'}.ss-navigatedown:before{content:''}.ss-navigateleft:before{content:'◅'}.ss-up:before{content:'⬆'}.ss-upright:before{content:'⬈'}.ss-right:before{content:'➡'}.ss-downright:before{content:'⬊'}.ss-down:before{content:'⬇'}.ss-downleft:before{content:'⬋'}.ss-left:before{content:'⬅'}.ss-upleft:before{content:'⬉'}.ss-retweet:before{content:''}

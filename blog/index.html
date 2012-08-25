@@ -1,0 +1,26 @@
+---
+layout: blog
+title: Blog
+---
+
+{% for post in site.posts limit:5 %}
+<article>
+  <hgroup>
+    <h1><a href="/{{ post.url }}">{{ post.title }}</a></a></h1>
+    {% if post.subtitle %}
+    <h2>{{ post.subtitle }}</h2>
+    {% endif %}
+    <p class="date">{{ post.date | date_to_ordinal_string }}</p>
+  </hgroup>
+  <div class="content">
+    {{ post.content }}
+  </div>
+</article>
+{% endfor %}
+
+<div class="pagination">
+  <p>Page 2 of 3</p>
+  <div class="clear"></div>
+  <a class="leftArrow ss-icon" href="#" title="Previous">Previous</a>
+  <a class="rightArrow ss-icon" href="#" title="Next">Next</a>
+</div
