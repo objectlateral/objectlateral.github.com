@@ -1,3 +1,4 @@
+url: http://objectlateral.com
 markdown: redcarpet
-permalink: "blog/:title"
+permalink: blog/:title
 exclude: [Rakefile, _drafts, Gemfile, Gemfile.lock, scss]
