@@ -8,7 +8,7 @@ layout: blog
     {% if page.subtitle %}
     <h2>{{ page.subtitle }}</h2>
     {% endif %}
-    <p class="date">{{ page.date | date_to_ordinal_string }}</p>
+    <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
   </hgroup>
   <div class="content">
     {{ content }}

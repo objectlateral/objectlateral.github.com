@@ -10,7 +10,7 @@ title: Blog
     {% if post.subtitle %}
     <h2>{{ post.subtitle }}</h2>
     {% endif %}
-    <p class="date">{{ post.date | date_to_ordinal_string }}</p>
+    <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
   </hgroup>
   <div class="content">
     {{ post.content }}
