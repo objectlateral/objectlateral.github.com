@@ -1,4 +1,5 @@
 url: http://objectlateral.com
 markdown: redcarpet
 permalink: blog/:title
+paginate: 5
 exclude: [Rakefile, _drafts, Gemfile, Gemfile.lock, scss]
