@@ -140,7 +140,7 @@ section: main
 		</ul>
 	</div></div>
 	<div class="form"><div class="wrap">
-		<form>
+		<form id="contact" action="http://po-box.objectlateral.com/mail" method="POST">
 			<div>
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name" />
@@ -153,7 +153,10 @@ section: main
 				<label for="message">Message</label>
 				<textarea name="message"></textarea>
 			</div>
-			<input type="submit" name="submit" value="Submit" id="submit" />
+			<div>
+				<label class="notice"></label>
+				<input type="submit" name="submit" value="Submit" id="submit" />
+			</div>
 		</form>
 	</div></div>
 	<p id="legal">&copy;2012 Object Lateral, Inc.</p>

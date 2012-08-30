@@ -679,6 +679,9 @@
 				z-index: -1;
 			}
 
+			label.notice {
+				color: $red;
+			}
 		}
 
 		// Re-using some of the animations from the seal
