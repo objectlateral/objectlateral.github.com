@@ -8,7 +8,10 @@ layout: blog
     {% if page.subtitle %}
     <h2>{{ page.subtitle }}</h2>
     {% endif %}
-    <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+    <p class="date">
+      by {% if page.author %} {{ page.author }} {% else %} Jerod {% endif %}
+      on {{ page.date | date: "%B %d, %Y" }}
+    </p>
   </hgroup>
   <div class="content">
     {{ content }}
