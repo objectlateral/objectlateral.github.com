@@ -10,9 +10,22 @@ class String
   end
 end
 
-desc "compiles scss into css"
-task :scss do
-  system "bundle exec sass --scss --style compact scss/ol.scss css/ol.css"
+namespace :assets do
+  desc "compresses/compiles js and css files"
+  task compile: [:scss, :jam]
+
+  desc "compiles scss into css"
+  task :scss do
+    puts "Compiling scss files..."
+    system "bundle exec sass --scss --style compact scss/ol.scss scss/ol.css"
+  end
+
+  desc "runs jammit"
+  task :jam do
+    puts "Compiling javascript and css files..."
+    system "jammit -o . -c _assets.yml"
+    system "rm scss/ol.css"
+  end
 end
 
 namespace :deploy do

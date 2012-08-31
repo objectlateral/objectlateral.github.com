@@ -1,0 +1,14 @@
+javascript_compressor: closure
+gzip_assets: false
+
+javascripts:
+  ol:
+    - js/jquery-1.7.2.min.js
+    - js/jquery.onscreen.min.js
+    - js/jquery.cycle.all.js
+    - js/modernizer-ol.js
+    - js/objectlateral.js
+
+stylesheets:
+  ol:
+    - scss/ol.css
