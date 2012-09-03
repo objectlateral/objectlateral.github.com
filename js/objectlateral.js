@@ -54,7 +54,7 @@ $(function() {
 
   $(".testimonials ul").cycle({
     speed:    500,
-    timeout:  5000,
+    timeout:  15000,
     slideResize: true,
     containerResize: false,
     fx: "fade",
