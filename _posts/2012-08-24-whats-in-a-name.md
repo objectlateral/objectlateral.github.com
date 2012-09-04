@@ -17,7 +17,7 @@ Back in 2009, [Rick Waldron][rwaldron] and [Boaz Sender][boazsender] wrote an en
 
 It just so happens that I had met Boaz and Rick at another jQuery Conference. When I realized it was them that owned the domain and that it was no longer in use, I reached out to see if I could buy it from them.
 
-Boaz refused to sell it to me. He insisted on gifting it to me! How awesome is that?
+Boaz and Rick refused to sell it to me. They insisted on gifting it to me! How awesome is that?
 
 The spirit of ObjectLateral.js lives on at its new home: [http://boazsender.github.com/ObjectLateralJS/][objectlateral-js]
 
