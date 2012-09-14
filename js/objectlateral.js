@@ -105,6 +105,7 @@ $(function() {
   $("form#contact").submit(function(ev) {
     ev.preventDefault();
     var $form = $(this);
+    var $submit = $form.find("input[type=submit]");
     var url = $form.attr("action");
     var name = $form.find("input[name=name]").val();
     var email = $form.find("input[name=email]").val();
@@ -115,8 +116,10 @@ $(function() {
       $notice.text("All fields required!");
     } else {
       $notice.text("En route...");
+      $submit.attr("disabled", "disabled");
       $.post(url, {name: name, email: email, message: message}, function(r) {
         $notice.text("Got it. We'll be in touch!");
+        $submit.removeAttr("disabled");
       });
     }
   });
