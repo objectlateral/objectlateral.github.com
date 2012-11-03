@@ -117,7 +117,7 @@ $(function() {
     } else {
       $notice.text("En route...");
       $submit.attr("disabled", "disabled");
-      $.post(url, {name: name, email: email, message: message}, function(r) {
+      $.post(url, {name: name, email: email, message: message, token: "8675309"}, function(r) {
         $notice.text("Got it. We'll be in touch!");
         $submit.removeAttr("disabled");
       });
