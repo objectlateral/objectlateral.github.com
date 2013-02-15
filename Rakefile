@@ -79,7 +79,7 @@ task :draft, [:name] do |t,args|
     f.puts "layout: post"
     f.puts "published: true"
     f.puts "title: \"#{args.name}\""
-    f.puts "excerpt: \"\""
+    f.puts "subtitle: \"\""
     f.puts "---"
   end
   system "open #{file}"
