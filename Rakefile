@@ -3,6 +3,8 @@ require "rake"
 require "date"
 require "net/http"
 
+JEKYLL = "bundle exec jekyll"
+
 class String
   # This is a Title => this-is-a-title
   def to_post_slug
@@ -45,15 +47,16 @@ namespace :deploy do
   end
 end
 
-namespace :server do
+namespace :serve do
   desc "Run the jekyll server for all posts"
   task :all do
+    system "#{JEKYLL} serve --watch"
     system "bundle exec jekyll --server --auto"
   end
 
   desc "Run the jekyll server for most recent post"
   task :one do
-    system "bundle exec jekyll --server --auto --limit_posts 1"
+    system "#{JEKYLL} serve --watch --limit_posts 1"
   end
 end
 
@@ -64,7 +67,7 @@ end
 
 desc "builds _site from current source"
 task :build do
-  system "bundle exec jekyll"
+  system "#{JEKYLL} build"
 end
 
 desc "cleans and builds _site from current source"
