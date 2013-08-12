@@ -725,10 +725,50 @@
 
   // News Page and Articles
 
-  .posts {
+  .posts, .training {
     max-width: 600px;
     margin: 0 auto;
     padding: 0 50px;
+  }
+
+  .training {
+    ul.jump-to {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      li {
+        display: inline !important;
+        margin: 10px;
+        a:active, a:hover {
+          color: $orange;
+        }
+      }
+    }
+
+    table {
+      margin: 0 auto 20px auto;
+
+      tr:nth-child(even) {
+        background: #FAFAFA;
+      }
+
+      th {
+        color: $dark-orange;
+        border-bottom: 1px solid $red;
+        padding: 3px 5px;
+      }
+
+      th:not(:last-child), td:not(:last-child) {
+        border-right: 1px solid $red;
+      }
+
+      td {
+        text-align: center;
+        padding: 5px 0;
+      }
+    }
   }
 
   article {
@@ -803,6 +843,10 @@
     p a:hover {color: $dark-orange;}
     p a:active {color: $orange;}
 
+  }
+
+  article.first {
+    margin-top: 7px;
   }
 
   .pagination {
