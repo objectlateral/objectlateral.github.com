@@ -1,4 +1,4 @@
-javascript_compressor: closure
+javascript_compressor: uglifier
 gzip_assets: false
 
 javascripts:
@@ -7,6 +7,7 @@ javascripts:
     - js/jquery.onscreen.min.js
     - js/jquery.cycle.all.js
     - js/modernizer-ol.js
+    - js/bigfoot.min.js
     - js/objectlateral.js
 
 stylesheets:

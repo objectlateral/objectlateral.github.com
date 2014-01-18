@@ -1,4 +1,7 @@
 $(function() {
+  // cool footnotes
+  $.bigfoot({positionContent: false});
+
   $("#seal").mouseenter(function() {
     $(this).addClass("over");
     $(".comet").addClass("over");
