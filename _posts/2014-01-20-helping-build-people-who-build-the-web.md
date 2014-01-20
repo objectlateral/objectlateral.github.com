@@ -26,7 +26,7 @@ Interface's mission is to build people who build the web, and I couldn't be more
 
 ## What kind of people?
 
-Interface is designed to be super flexible so we can help a wide range of individuals. Whereever you are in your personal goals or professional career, we want to meet you there and enable you to level up your skills.
+Interface is designed to be super flexible so we can help a wide range of individuals. Whereever you are with your personal goals or professional career, we want to meet you there and *enable you* to level up.
 
 No previous web skills are required to enroll, but my classes will not be a walk in the park. Students will need to be self-motivated and willing to dive in and immerse themselves in the material. Not sure if Interface is for you? <a href="mailto:jerod@interfaceschool.com">Get in touch</a> and we can find out together.
 
