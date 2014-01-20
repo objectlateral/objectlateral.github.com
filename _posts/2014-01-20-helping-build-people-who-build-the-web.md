@@ -18,7 +18,7 @@ I feel like I've been teaching ever since I had something to contribute. I love,
 
 ## Announcing Interface
 
-I'm super excited to impart to others the hard-earned web knowledge I've accumulated over the years. With that, I'm happy to announce [Interface: The Web Shool][interface].
+I'm super excited to impart to others the hard-earned web knowledge I've accumulated over the years. With that, I'm happy to announce [Interface: The Web School][interface].
 
 [<img src="/images/posts/interface-banner.png" alt="Interface: The Web School" width="425" height="175">][interface]
 
