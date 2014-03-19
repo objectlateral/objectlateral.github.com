@@ -869,11 +869,11 @@
 
   // Retina Styles
 
-  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  @media (-webkit-min-device-pixel-ratio: 2),
   only screen and (min--moz-device-pixel-ratio: 2),
   only screen and (-o-min-device-pixel-ratio: 2/1),
-  only screen and (min-device-pixel-ratio: 2) {
-
+  only screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
 
     #cometTrail {
       background: url(/images/comet-trail@2x.png) repeat-x top left !important;
