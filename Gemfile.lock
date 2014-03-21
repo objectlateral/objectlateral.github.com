@@ -37,7 +37,7 @@ GEM
       yajl-ruby (~> 1.1.0)
     redcarpet (2.2.2)
     safe_yaml (0.7.1)
-    sass (3.2.1)
+    sass (3.3.3)
     syntax (1.0.0)
     yajl-ruby (1.1.0)
     yui-compressor (0.9.6)
@@ -49,4 +49,4 @@ PLATFORMS
 DEPENDENCIES
   jammit
   jekyll (~> 1.1.2)
-  sass
+  sass (~> 3.3.3)
