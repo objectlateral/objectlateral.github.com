@@ -174,6 +174,7 @@
     height: 165px;
     @include border-radius(165px);
     background: $blue url(/images/space1.gif) 0 0;
+    background-size: 400px 400px;
     border: 10px solid $green;
     margin: 20px auto;
     overflow: hidden;
@@ -216,6 +217,7 @@
 
     .space2 {
       background: url(/images/space2.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 10;
     }
 
@@ -571,10 +573,12 @@
     }
     .space2 {
       background: url(/images/space2.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 10;
     }
     .space3 {
       background: url(/images/space3.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 5;
     }
 
@@ -659,6 +663,7 @@
       padding-bottom: 20px;
       margin-bottom: 30px;
       background: $blue url(/images/space1.gif);
+      background-size: 400px 400px;
       padding: 40px 20px 20px;
       @include border-radius-top(5px);
     }
@@ -779,12 +784,10 @@
 
     .space2 {
       background-image: url(/images/space2@2x.gif) !important;
-      background-size: 400px 400px;
     }
 
     .space3 {
       background-image: url(/images/space3@2x.gif) !important;
-      background-size: 400px 400px;
     }
 
   }
