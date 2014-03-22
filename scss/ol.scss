@@ -1,3 +1,4 @@
+@import "bourbon/bourbon";
 @import "base";
 @import "skeleton";
 @import "bigfoot";
@@ -173,6 +174,7 @@
     height: 165px;
     @include border-radius(165px);
     background: $blue url(/images/space1.gif) 0 0;
+    background-size: 400px 400px;
     border: 10px solid $green;
     margin: 20px auto;
     overflow: hidden;
@@ -180,9 +182,9 @@
     h1 {
       text-indent: -9999px;
       background: url(/images/sealText.png) no-repeat center;
+      background-size: contain;
       width: 165px;
       height: 165px;
-
       position: absolute;
       top: 0;
       left: 0;
@@ -191,20 +193,17 @@
 
     .comet {
       background: url(/images/comet.png) no-repeat center;
+      background-size: 90px auto;
       width: 165px;
       height: 165px;
-
       position: absolute;
       top: 0;
       left: -5px;
       z-index: 60;
-
     }
 
     .comet.over {
-      -webkit-animation: bobbing-comet .75s 0s ease-in-out infinite;
-      -moz-animation: bobbing-comet .75s 0s ease-in-out infinite;
-      -o-animation: bobbing-comet .75s 0s ease-in-out infinite;
+      @include animation(bobbing-comet .75s 0s ease-in-out infinite);
     }
 
     .space2, .space3 {
@@ -218,6 +217,7 @@
 
     .space2 {
       background: url(/images/space2.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 10;
     }
 
@@ -228,58 +228,27 @@
   }
 
   #seal.over {
-    -webkit-animation: space-moving-seal 40s 0s linear infinite;
-    -moz-animation: space-moving-seal 40s 0s linear infinite;
-    -o-animation: space-moving-seal 40s 0s linear infinite;
+    @include animation(space-moving-seal 40s 0s linear infinite);
   }
 
-  @-webkit-keyframes space-moving-seal {
+  @include keyframes(space-moving-seal) {
     from  { background-position: 0 0; }
     to { background-position: -400px 0; }
   }
-  @-moz-keyframes space-moving-seal {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-  @-o-keyframes space-moving-seal {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-
   .over .space2 {
-    -webkit-animation: space-moving 12s 0s linear infinite;
-    -moz-animation: space-moving 12s 0s linear infinite;
-    -o-animation: space-moving 12s 0s linear infinite;
+    @include animation(space-moving 12s 0s linear infinite);
   }
 
-  @-webkit-keyframes space-moving {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-  @-moz-keyframes space-moving {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-  @-o-keyframes space-moving {
+  @include keyframes(space-moving) {
     from  { background-position: 0 0; }
     to { background-position: -400px 0; }
   }
 
   .over .space3 {
-    -webkit-animation: space-movingtwo 18s 0s linear infinite;
-    -moz-animation: space-movingtwo 18s 0s linear infinite;
-    -o-animation: space-movingtwo 18s 0s linear infinite;
+    @include animation(space-movingtwo 18s 0s linear infinite);
   }
 
-  @-webkit-keyframes space-movingtwo {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-  @-moz-keyframes space-movingtwo {
-    from  { background-position: 0 0; }
-    to { background-position: -400px 0; }
-  }
-  @-o-keyframes space-movingtwo {
+  @include keyframes(space-movingtwo) {
     from  { background-position: 0 0; }
     to { background-position: -400px 0; }
   }
@@ -298,29 +267,17 @@
   }
 
   #cometTrail.over {
-    -webkit-animation: comet-trail 5s 0s linear infinite;
-    -moz-animation: comet-trail 5s 0s linear infinite;
-    -o-animation: comet-trail 5s 0s linear infinite;
+    @include animation(comet-trail 5s 0s linear infinite);
   }
 
-  @-webkit-keyframes comet-trail {
-    from  { background-position: 0 0; }
-    to { background-position: -3000px 0; }
-  }
-  @-moz-keyframes comet-trail {
-    from  { background-position: 0 0; }
-    to { background-position: -3000px 0; }
-  }
-  @-o-keyframes comet-trail {
+  @include keyframes(comet-trail) {
     from  { background-position: 0 0; }
     to { background-position: -3000px 0; }
   }
 
-  .wrap {
-    margin: 10px 25px;
-  }
+  .wrap { margin: 10px 25px; }
 
-  @-webkit-keyframes bobbing-comet {
+  @include keyframes(bobbing-comet) {
     0%  { @include translate(0,0px); }
     10% { @include translate(0,2px); }
     20% { @include translate(0,-2px); }
@@ -333,33 +290,6 @@
     90% { @include translate(0,-1px); }
     100% { @include translate(0,0px); }
   }
-  @-moz-keyframes bobbing-comet {
-    0%  { @include translate(0,0px); }
-    10% { @include translate(0,2px); }
-    20% { @include translate(0,-2px); }
-    30% { @include translate(0,1px); }
-    40% { @include translate(0,-1px); }
-    50% { @include translate(0,0px); }
-    60% { @include translate(0,2px); }
-    70% { @include translate(0,-2px); }
-    80% { @include translate(0,1px); }
-    90% { @include translate(0,-1px); }
-    100% { @include translate(0,0px); }
-  }
-  @-o-keyframes bobbing-comet {
-    0%  { @include translate(0,0px); }
-    10% { @include translate(0,2px); }
-    20% { @include translate(0,-2px); }
-    30% { @include translate(0,1px); }
-    40% { @include translate(0,-1px); }
-    50% { @include translate(0,0px); }
-    60% { @include translate(0,2px); }
-    70% { @include translate(0,-2px); }
-    80% { @include translate(0,1px); }
-    90% { @include translate(0,-1px); }
-    100% { @include translate(0,0px); }
-  }
-
 
 /* #Section Styles
 ================================================== */
@@ -455,10 +385,7 @@
         min-height: 300px;
       }
     }
-
-    p {
-      margin: 20px 0 0 0;
-    }
+    p { margin: 20px 0 0 0; }
   }
 
   section#work {
@@ -485,29 +412,22 @@
       padding-bottom: 20px;
     }
 
-    ul {
-      margin: 10px 0;
+    ul { margin: 10px 0; }
+    li {
+      margin: 0;
+      font-size: 1.2em;
+      line-height: 1.5em;
     }
-
-      li {
-        margin: 0;
-        font-size: 1.2em;
-        line-height: 1.5em;
-      }
-
 
     .clients {
       width: 33%;
       text-align: center;
-
-
       a {
         display: block;
         color: $light-blue;
         text-decoration: none;
         position: relative;
       }
-
       .ss-action {
         font-size: .6em;
         display: none;
@@ -515,21 +435,16 @@
         right: 25px;
         top: 2px;
       }
-
       li.current a {
         background: $lightest-tan;
       }
-
       a:hover {
         background: $lightest-tan;
+        &:hover span {
+          display: block;
+        }
       }
-
-      a:hover span {
-        display: block;
-      }
-
     }
-
     .testimonials {
       width: 64%;
       margin-left: 3%;
@@ -547,16 +462,11 @@
 
         a {
           color: $light-green;
-        }
-
-        a:hover {
-          color: $green;
+          &:hover { color: $green; }
         }
       }
 
-      ul {
-        margin: 10px 0;
-      }
+      ul { margin: 10px 0; }
 
       .byline {
         color: $orange;
@@ -577,10 +487,7 @@
     a {
       color: $white;
       text-decoration: none;
-    }
-
-    a:hover {
-      color: $light-tan;
+      &:hover { color: $light-tan; }
     }
 
     > div {
@@ -588,75 +495,46 @@
       float: left;
     }
 
-    h1 {
-      color: $green;
-    }
+    h1 { color: $green; }
 
     .info {
       z-index: 20;
       position: relative;
-
       p {
         font-size: 1.1em;
         margin-top: 12px;
       }
-
-      .large {
-        font-size: 1.2em;
-      }
-
-      .wrap {
-        margin: 35px 15px 0 0;
-      }
-
+      .large { font-size: 1.2em; }
+      .wrap { margin: 35px 15px 0 0; }
     }
 
     .shareIcons {
       overflow: auto;
       display: table;
       margin: 0 auto;
-
       li {
         float: left;
         line-height: 2.3em;
         padding: 0 10px;
         margin-bottom: 0;
-
-        a {
-          font-size: 1.8em;
-        }
-
+        a { font-size: 1.8em; }
       }
-
       .twitter {
         color: $green;
+        &:hover { color: $dark-green; }
       }
-      .twitter:hover {
-        color: $dark-green;
-      }
-
-
       .linkedin {
         color: $tan;
+        &:hover { color: $dark-tan; }
       }
-      .linkedin:hover{
-        color: $dark-tan;
-      }
-
       .facebook {
         color: $orange;
+        &:hover { color: $dark-orange; }
       }
-      .facebook:hover {
-        color: $dark-orange;
-      }
-
       .github {
         color: $red;
+        &:hover { color: $dark-red; }
       }
-      .github:hover {
-        color: $dark-red;
-      }
-
     }
 
     .form {
@@ -686,7 +564,6 @@
     }
 
     // Re-using some of the animations from the seal
-
     .space2, .space3 {
       width: 100%;
       height: 100%;
@@ -696,10 +573,12 @@
     }
     .space2 {
       background: url(/images/space2.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 10;
     }
     .space3 {
       background: url(/images/space3.gif) 0 0;
+      background-size: 400px 400px;
       z-index: 5;
     }
 
@@ -784,13 +663,12 @@
       padding-bottom: 20px;
       margin-bottom: 30px;
       background: $blue url(/images/space1.gif);
+      background-size: 400px 400px;
       padding: 40px 20px 20px;
       @include border-radius-top(5px);
     }
 
-    .content {
-      padding: 0 20px 20px;
-    }
+    .content { padding: 0 20px 20px; }
 
     h1, h2, h3, h4, h5 {
       color: $orange;
@@ -807,9 +685,7 @@
       }
     }
 
-    h2 {
-      color: $red;
-    }
+    h2 { color: $red; }
 
     p.date {
       text-align: center;
@@ -826,6 +702,10 @@
     p {
       font-size: .9em;
       line-height: 1.8em;
+      a:link {color: $blue;}
+      a:visited {color: $dark-orange;}
+      a:hover {color: $dark-orange;}
+      a:active {color: $orange;}
     }
 
     p.caption {
@@ -838,12 +718,6 @@
       color: $lightest-blue;
       margin: 0 0 20px 50px;
     }
-
-    p a:link {color: $blue;}
-    p a:visited {color: $dark-orange;}
-    p a:hover {color: $dark-orange;}
-    p a:active {color: $orange;}
-
   }
 
   article.first {
@@ -854,10 +728,8 @@
     text-align: center;
     padding: 10px 0 100px;
     font-size: 2em;
-
     p {
       font-size: .75em;
-
       padding: 0 0 20px;
       margin: 0 0 20px;
     }
@@ -869,64 +741,53 @@
 
   // Retina Styles
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-  only screen and (min--moz-device-pixel-ratio: 2),
-  only screen and (-o-min-device-pixel-ratio: 2/1),
-  only screen and (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-
+  @include hidpi(1.5) {
     #cometTrail {
-      background: url(/images/comet-trail@2x.png) repeat-x top left !important;
+      background-image: url(/images/comet-trail@2x.png) !important;
     }
-
     .tools-img {
-      background: url(/images/slider-tools@2x.png) top center no-repeat !important;
+      background-image: url(/images/slider-tools@2x.png) !important;
       background-size: 500px 190px;
     }
     .thoughtful-img {
-      background: url(/images/slider-thoughtful@2x.png) top center no-repeat !important;
+      background-image: url(/images/slider-thoughtful@2x.png) !important;
       background-size: 370px 190px;
     }
     .platforms-img {
-      background: url(/images/slider-platforms@2x.png) top center no-repeat !important;
+      background-image: url(/images/slider-platforms@2x.png) !important;
       background-size: 370px 190px;
     }
 
     #seal .comet {
-      background: url(/images/comet@2x.png) no-repeat center !important;
-      background-size: 90px 79px;
+      background-image: url(/images/comet@2x.png) !important;
     }
-
     section#about {
       h1 {
-        background: url(/images/logo-embossed@2x.png) top center no-repeat !important;
+        background-image: url(/images/logo-embossed@2x.png) !important;
         background-size: 218px 104px;
       }
     }
 
     article {
       hgroup {
-        background: $blue url(/images/space1@2x.gif) 0 0 !important;
+        background-image: url(/images/space1@2x.gif) !important;
       }
     }
 
     #seal {
-      background: $blue url(/images/space1@2x.gif) 0 0 !important;
+      background-image: url(/images/space1@2x.gif) !important;
 
       h1 {
-        background: url(/images/sealText@2x.png) no-repeat center;
-        background-size: 165px 165px;
+        background-image: url(/images/sealText@2x.png) !important;
       }
     }
 
     .space2 {
-      background: url(/images/space2@2x.gif) 0 0 !important;
-      background-size: 400px 400px;
+      background-image: url(/images/space2@2x.gif) !important;
     }
 
     .space3 {
-      background: url(/images/space3@2x.gif) 0 0 !important;
-      background-size: 400px 400px;
+      background-image: url(/images/space3@2x.gif) !important;
     }
 
   }
@@ -960,29 +821,21 @@
     }
 
     section#about  {
-
       padding: 30px 50px;
-
       .left, .right {
         width: 100%;
         margin: 10px 0;
       }
-
       .right {
         display: none;
       }
-
     }
 
-
     section#work  {
-
       padding: 30px 50px;
-
       h1 {
         letter-spacing: 0px;
       }
-
       .clients, .testimonials {
         width: 100%;
         margin: 10px 0;
@@ -990,9 +843,7 @@
     }
 
     section#contact  {
-
       padding: 30px 50px;
-
       .info, .form {
         width: 100%;
         margin: 10px 0;
@@ -1001,7 +852,6 @@
 
     #slider {
       margin: -30px 50px 0;
-
     }
 
     .readmore {
@@ -1013,29 +863,23 @@
   /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
   @media only screen and (min-width: 580px) and (max-width: 767px) {
 
-
   }
 
   @media only screen and (max-width: 640px) {
-
     #seal {
       margin: 20px auto 10px;
     }
-
     header #tagLine {
       position: relative;
       width: 100%;
       top: 0;
-
       h2 {
         margin-right: 0;
         text-align: center;
       }
-
       .thoughtful {
         display: inline;
       }
-
       em {
         display: none;
       }
@@ -1075,58 +919,30 @@
 
     #slider {
       margin-top: 20px;
-
-      .tools-img {
-        background-size: 100% auto;
-      }
-
-      h2 {
-        letter-spacing: 1px;
-      }
-
-      br {
-        display: none;
-      }
-
+      .tools-img { background-size: 100% auto; }
+      h2 { letter-spacing: 1px; }
+      br { display: none; }
     }
 
   }
 
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
   @media only screen and (max-width: 520px) {
-
-    section#contact  {
-
-      .form {
-        display: none;
-      }
-    }
-
-    section {
-      padding: 15px 25px;
-    }
-
+    section#contact .form { display: none; }
+    section { padding: 15px 25px; }
     section#about, section#contact, section#work  {
-
       padding: 30px 25px;
-
     }
-
   }
 
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
   @media only screen and (max-width: 420px) {
-
-
     #slider {
-
       .tools-img, .thoughtful-img, .platforms-img {
         height: 180px;
       }
-
       .thoughtful-img, .platforms-img {
         background-size: 100% auto;
       }
     }
-
   }
