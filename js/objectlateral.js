@@ -116,13 +116,14 @@ $(function() {
     var $notice = $form.find("label.notice");
 
     if (!name || !email || !message) {
-      $notice.text("All fields required!");
+      $notice.text("All fields are required!");
     } else {
       $notice.text("En route...");
-      $submit.attr("disabled", "disabled");
+      $submit.val("...").attr("disabled", "disabled");
       $.post(url, {name: name, email: email, message: message, token: "8675309"}, function(r) {
+        $form[0].reset();
         $notice.text("Got it. We'll be in touch!");
-        $submit.removeAttr("disabled");
+        $submit.val("Submit").removeAttr("disabled");
       });
     }
   });
