@@ -52,7 +52,7 @@ section: main
 
 <section id="blog">
   {% for post in site.posts limit:1 %}
-  <p><span class="large">Blog</span>{{ post.title }} {% if post.subtitle %}&mdash; {{ post.subtitle }} {% endif %} <a href="{{ post.url }}/" title="{{ post.title }}" class="readmore"> <small>Read More</small></a></p>
+  <p><span class="large">Blog</span>{{ post.title }} {% if post.subtitle %}&mdash; {{ post.subtitle }} {% endif %} <a href="{{ post.url }}" title="{{ post.title }}" class="readmore"> <small>Read More</small></a></p>
   {% endfor %}
 </section>
 
