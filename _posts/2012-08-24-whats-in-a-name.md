@@ -1,6 +1,4 @@
 ---
-layout: post
-published: true
 title: "What's in a Name?"
 subtitle: "The origin of our namesake"
 ---

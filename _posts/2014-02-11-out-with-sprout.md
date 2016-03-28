@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Out with Sprout"
 subtitle: "Omaha's Family Event Calendar"
 ---

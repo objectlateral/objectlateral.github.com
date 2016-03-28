@@ -1,6 +1,4 @@
 ---
-layout: post
-published: true
 title: "Omahype, Trim, & Flexxive"
 subtitle: "Oh my!"
 ---

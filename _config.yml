@@ -2,6 +2,14 @@ url: http://objectlateral.com
 markdown: kramdown
 permalink: blog/:title
 paginate: 5
-paginate_path: "blog/page:num"
+paginate_path: "blog/page:num/"
 exclude: [Rakefile, _drafts, Gemfile, Gemfile.lock, scss, js]
 gems: [jekyll-paginate]
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      section: "blog"

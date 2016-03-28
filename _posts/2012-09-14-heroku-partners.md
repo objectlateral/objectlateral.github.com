@@ -1,6 +1,4 @@
 ---
-layout: post
-published: true
 title: "Heroku Partners"
 subtitle: "We're one of 'em"
 ---

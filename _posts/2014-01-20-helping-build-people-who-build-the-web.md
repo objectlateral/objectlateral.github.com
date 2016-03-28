@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Helping Build People Who Build the Web"
 subtitle: "with Interface"
 ---

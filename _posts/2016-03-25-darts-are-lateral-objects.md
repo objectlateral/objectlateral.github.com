@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Darts Are Lateral Objects"
 subtitle: "unless you throw them poorly"
 ---
