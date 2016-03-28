@@ -1,6 +1,6 @@
 source "https://rubygems.org"
-ruby "2.0.0"
+ruby "2.3.0"
 
-gem "jekyll", "~> 1.1.2"
-gem "sass", "~> 3.3.3"
+gem "github-pages"
+gem "jekyll-paginate"
 gem "jammit"

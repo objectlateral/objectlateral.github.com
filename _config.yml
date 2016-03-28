@@ -4,3 +4,4 @@ permalink: blog/:title
 paginate: 5
 paginate_path: "blog/page:num"
 exclude: [Rakefile, _drafts, Gemfile, Gemfile.lock, scss, js]
+gems: [jekyll-paginate]
